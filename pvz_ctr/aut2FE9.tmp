@@ -1,0 +1,154 @@
+[gd_scene load_steps=8 format=3 uid="uid://rkmrrch1pmj7"]
+
+[ext_resource type="Script" path="res://auto_load.gd" id="1_crwia"]
+[ext_resource type="StyleBox" uid="uid://bscuhgwa4phia" path="res://images/button.tres" id="1_wt3qn"]
+[ext_resource type="AudioStream" uid="uid://c1t4mvgssy6yy" path="res://sounds/Grasswalk.ogg" id="1_xehyp"]
+[ext_resource type="StyleBox" uid="uid://7goprl57dj1m" path="res://images/nothing.tres" id="1_y4kb0"]
+[ext_resource type="Texture2D" uid="uid://rhkxdykmbl23" path="res://images/menu.png" id="3_btxko"]
+[ext_resource type="StyleBox" uid="uid://b7l7y54m1mm5a" path="res://images/button_down.tres" id="5_h52ib"]
+[ext_resource type="AudioStream" uid="uid://vqdrh3e77o14" path="res://sounds/buttonclick.ogg" id="6_eaos4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_crwia")
+
+[node name="menu" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("1_y4kb0")
+theme_override_styles/disabled = ExtResource("1_y4kb0")
+theme_override_styles/hover = ExtResource("1_wt3qn")
+theme_override_styles/pressed = ExtResource("5_h52ib")
+theme_override_styles/normal = ExtResource("1_wt3qn")
+text = "菜单"
+
+[node name="Control" type="Control" parent="menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="quite" type="Button" parent="menu/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 97.0
+offset_right = 86.0
+offset_bottom = 145.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("1_y4kb0")
+theme_override_styles/disabled = ExtResource("1_y4kb0")
+theme_override_styles/hover = ExtResource("1_wt3qn")
+theme_override_styles/pressed = ExtResource("5_h52ib")
+theme_override_styles/normal = ExtResource("1_wt3qn")
+text = "退出"
+
+[node name="restart" type="Button" parent="menu/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 49.0
+offset_right = 86.0
+offset_bottom = 97.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("1_y4kb0")
+theme_override_styles/disabled = ExtResource("1_y4kb0")
+theme_override_styles/hover = ExtResource("1_wt3qn")
+theme_override_styles/pressed = ExtResource("5_h52ib")
+theme_override_styles/normal = ExtResource("1_wt3qn")
+text = "重新开始"
+
+[node name="Sprite2D" type="Sprite2D" parent="menu/Control"]
+z_index = -1
+position = Vector2(62.5625, 73.5)
+scale = Vector2(0.584276, 0.941558)
+texture = ExtResource("3_btxko")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_xehyp")
+autoplay = true
+
+[node name="buttonclick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_eaos4")
+
+[node name="win" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="win"]
+z_index = -1
+scale = Vector2(1.01357, 0.623377)
+texture = ExtResource("3_btxko")
+
+[node name="quite" type="Button" parent="win"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = -19.0
+offset_right = 26.0
+offset_bottom = 29.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("1_y4kb0")
+theme_override_styles/disabled = ExtResource("1_y4kb0")
+theme_override_styles/hover = ExtResource("1_wt3qn")
+theme_override_styles/pressed = ExtResource("5_h52ib")
+theme_override_styles/normal = ExtResource("1_wt3qn")
+text = "下一关"
+
+[node name="srarts" type="Label" parent="."]
+offset_top = 7.0
+offset_right = 72.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 20
+text = "星星：0"
+
+[connection signal="button_down" from="menu" to="." method="_button_sound"]
+[connection signal="button_up" from="menu" to="." method="_on_menu_button_up"]
+[connection signal="button_down" from="menu/Control/quite" to="." method="_button_sound"]
+[connection signal="button_up" from="menu/Control/quite" to="." method="_on_menu_3_button_up"]
+[connection signal="button_down" from="menu/Control/restart" to="." method="_button_sound"]
+[connection signal="button_up" from="menu/Control/restart" to="." method="_on_restart_button_up"]
+[connection signal="button_down" from="win/quite" to="." method="_button_sound"]
+[connection signal="button_up" from="win/quite" to="." method="_on_quite_button_up"]
