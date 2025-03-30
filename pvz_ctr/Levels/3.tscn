@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://bktlh0q4nvx47"]
+
+[ext_resource type="PackedScene" uid="uid://coebjnt04y60a" path="res://reanim/Chomper.tscn" id="1_vjxkj"]
+[ext_resource type="PackedScene" uid="uid://d2jywkqynok50" path="res://reanim/fixed_end.tscn" id="2_ad2y2"]
+[ext_resource type="PackedScene" uid="uid://bhf8f50b08nul" path="res://reanim/rope.tscn" id="3_tgreg"]
+[ext_resource type="PackedScene" uid="uid://dhsxok0c1pwt5" path="res://reanim/head.tscn" id="4_ajga7"]
+[ext_resource type="PackedScene" uid="uid://bcdmex6xpwhiw" path="res://images/star.tscn" id="5_424kv"]
+
+[node name="Levels" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-141, 211)
+zoom = Vector2(0.39, 0.39)
+
+[node name="player" parent="." instance=ExtResource("1_vjxkj")]
+position = Vector2(179, 714)
+
+[node name="rope" type="Node" parent="."]
+
+[node name="fixed_end" parent="rope" instance=ExtResource("2_ad2y2")]
+position = Vector2(172, -519)
+
+[node name="rope2" parent="rope/fixed_end" instance=ExtResource("3_tgreg")]
+position = Vector2(-26, 119)
+rotation = 0.225147
+
+[node name="rope3" parent="rope/fixed_end" instance=ExtResource("3_tgreg")]
+position = Vector2(-68, 301)
+rotation = 0.225147
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-5, 28)
+node_a = NodePath("..")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-47, 208)
+node_a = NodePath("../rope2")
+node_b = NodePath("../rope3")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-91, 386)
+node_a = NodePath("../rope3")
+node_b = NodePath("../../head")
+
+[node name="fixed_end2" parent="rope" instance=ExtResource("2_ad2y2")]
+position = Vector2(-426, -522)
+
+[node name="rope2" parent="rope/fixed_end2" instance=ExtResource("3_tgreg")]
+position = Vector2(67, 112)
+rotation = -0.499164
+
+[node name="rope3" parent="rope/fixed_end2" instance=ExtResource("3_tgreg")]
+position = Vector2(180, 264)
+rotation = -0.74351
+
+[node name="rope4" parent="rope/fixed_end2" instance=ExtResource("3_tgreg")]
+position = Vector2(323, 386)
+rotation = -0.98262
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(24, 27)
+node_a = NodePath("..")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(114, 194)
+node_a = NodePath("../rope2")
+node_b = NodePath("../rope3")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(244, 331)
+node_a = NodePath("../rope3")
+node_b = NodePath("../rope4")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(398, 433)
+node_a = NodePath("../rope4")
+node_b = NodePath("../../head")
+
+[node name="fixed_end3" parent="rope" instance=ExtResource("2_ad2y2")]
+position = Vector2(-303, 289)
+
+[node name="rope2" parent="rope/fixed_end3" instance=ExtResource("3_tgreg")]
+position = Vector2(104, -107)
+rotation = -2.40157
+
+[node name="rope3" parent="rope/fixed_end3" instance=ExtResource("3_tgreg")]
+position = Vector2(240, -243)
+rotation = -5.45066
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope/fixed_end3"]
+position = Vector2(44, -37)
+node_a = NodePath("..")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope/fixed_end3"]
+position = Vector2(170, -178)
+node_a = NodePath("../rope2")
+node_b = NodePath("../rope3")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope/fixed_end3"]
+position = Vector2(302, -307)
+node_a = NodePath("../rope3")
+node_b = NodePath("../../head")
+
+[node name="head" parent="rope" instance=ExtResource("4_ajga7")]
+position = Vector2(45, -58)
+
+[node name="star" parent="." instance=ExtResource("5_424kv")]
+position = Vector2(-303, 559)
+
+[node name="star2" parent="." instance=ExtResource("5_424kv")]
+position = Vector2(-360, 60)
+
+[node name="star3" parent="." instance=ExtResource("5_424kv")]
+position = Vector2(55, 85)

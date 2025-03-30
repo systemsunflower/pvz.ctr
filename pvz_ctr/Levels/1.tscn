@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://3accb8g5v8r7"]
+
+[ext_resource type="PackedScene" uid="uid://coebjnt04y60a" path="res://reanim/Chomper.tscn" id="1_sldxk"]
+[ext_resource type="PackedScene" uid="uid://bcdmex6xpwhiw" path="res://images/star.tscn" id="2_j8d56"]
+[ext_resource type="PackedScene" uid="uid://d2jywkqynok50" path="res://reanim/fixed_end.tscn" id="3_vnojx"]
+[ext_resource type="PackedScene" uid="uid://bhf8f50b08nul" path="res://reanim/rope.tscn" id="4_b84gn"]
+[ext_resource type="PackedScene" uid="uid://dhsxok0c1pwt5" path="res://reanim/head.tscn" id="5_aa3tf"]
+
+[node name="Levels" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-24, -234)
+zoom = Vector2(0.25, 0.25)
+
+[node name="player" parent="." instance=ExtResource("1_sldxk")]
+position = Vector2(0, 711)
+
+[node name="star" type="Node" parent="."]
+
+[node name="star" parent="star" instance=ExtResource("2_j8d56")]
+
+[node name="star2" parent="star" instance=ExtResource("2_j8d56")]
+position = Vector2(0, -250)
+
+[node name="star3" parent="star" instance=ExtResource("2_j8d56")]
+position = Vector2(0, 250)
+
+[node name="rope" type="Node2D" parent="."]
+
+[node name="fixed_end" parent="rope" instance=ExtResource("3_vnojx")]
+position = Vector2(0, -1332)
+
+[node name="rope" parent="rope" instance=ExtResource("4_b84gn")]
+position = Vector2(-2, -1238)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope"]
+position = Vector2(0, -1332)
+node_a = NodePath("../fixed_end")
+node_b = NodePath("../rope")
+
+[node name="rope2" parent="rope" instance=ExtResource("4_b84gn")]
+position = Vector2(-2, -1047)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope"]
+position = Vector2(0, -1142)
+node_a = NodePath("../rope")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope"]
+position = Vector2(-2, -952)
+node_a = NodePath("../head")
+node_b = NodePath("../rope2")
+
+[node name="head" parent="rope" instance=ExtResource("5_aa3tf")]
+position = Vector2(3, -872)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -800.0
+offset_top = -1515.0
+offset_right = 800.0
+offset_bottom = -1378.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "L1tip"

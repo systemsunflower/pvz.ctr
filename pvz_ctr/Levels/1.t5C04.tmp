@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://3accb8g5v8r7"]
+
+[ext_resource type="PackedScene" uid="uid://coebjnt04y60a" path="res://reanim/Chomper.tscn" id="1_rscvf"]
+[ext_resource type="PackedScene" uid="uid://bcdmex6xpwhiw" path="res://images/star.tscn" id="2_l6tww"]
+[ext_resource type="PackedScene" uid="uid://d2jywkqynok50" path="res://reanim/fixed_end.tscn" id="3_sbxkx"]
+[ext_resource type="PackedScene" uid="uid://bhf8f50b08nul" path="res://reanim/rope.tscn" id="4_y6mfa"]
+[ext_resource type="PackedScene" uid="uid://dhsxok0c1pwt5" path="res://reanim/head.tscn" id="5_3mwr6"]
+
+[node name="L1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.2, 0.2)
+
+[node name="plaer" parent="." instance=ExtResource("1_rscvf")]
+position = Vector2(0, 711)
+
+[node name="star" type="Node" parent="."]
+
+[node name="star" parent="star" instance=ExtResource("2_l6tww")]
+
+[node name="star2" parent="star" instance=ExtResource("2_l6tww")]
+position = Vector2(0, -250)
+
+[node name="star3" parent="star" instance=ExtResource("2_l6tww")]
+position = Vector2(0, 250)
+
+[node name="rope" type="Node2D" parent="."]
+
+[node name="fixed_end" parent="rope" instance=ExtResource("3_sbxkx")]
+position = Vector2(0, -1332)
+scale = Vector2(3, 3)
+
+[node name="rope" parent="rope" instance=ExtResource("4_y6mfa")]
+position = Vector2(-2, -1238)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope"]
+position = Vector2(0, -1332)
+node_a = NodePath("../fixed_end")
+node_b = NodePath("../rope")
+
+[node name="rope2" parent="rope" instance=ExtResource("4_y6mfa")]
+position = Vector2(-2, -1047)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope"]
+position = Vector2(0, -1142)
+node_a = NodePath("../rope")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope"]
+position = Vector2(-2, -952)
+node_a = NodePath("../head")
+node_b = NodePath("../rope2")
+
+[node name="head" parent="rope" instance=ExtResource("5_3mwr6")]
+position = Vector2(3, -872)

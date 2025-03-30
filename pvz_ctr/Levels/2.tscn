@@ -1,0 +1,179 @@
+[gd_scene load_steps=6 format=3 uid="uid://uhi8xsol76l1"]
+
+[ext_resource type="PackedScene" uid="uid://coebjnt04y60a" path="res://reanim/Chomper.tscn" id="1_1ip4g"]
+[ext_resource type="PackedScene" uid="uid://dhsxok0c1pwt5" path="res://reanim/head.tscn" id="2_7pm7q"]
+[ext_resource type="PackedScene" uid="uid://d2jywkqynok50" path="res://reanim/fixed_end.tscn" id="3_t8f2r"]
+[ext_resource type="PackedScene" uid="uid://bhf8f50b08nul" path="res://reanim/rope.tscn" id="4_06flv"]
+[ext_resource type="PackedScene" uid="uid://bcdmex6xpwhiw" path="res://images/star.tscn" id="5_xsb48"]
+
+[node name="Levels" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-445, 568)
+zoom = Vector2(0.27, 0.27)
+
+[node name="player" parent="." instance=ExtResource("1_1ip4g")]
+position = Vector2(30, 1264)
+
+[node name="rope" type="Node" parent="."]
+
+[node name="head" parent="rope" instance=ExtResource("2_7pm7q")]
+position = Vector2(-1000, 306)
+
+[node name="fixed_end" parent="rope" instance=ExtResource("3_t8f2r")]
+position = Vector2(-532, -194)
+
+[node name="rope" parent="rope/fixed_end" instance=ExtResource("4_06flv")]
+position = Vector2(-13, 136)
+rotation = 0.165806
+
+[node name="rope2" parent="rope/fixed_end" instance=ExtResource("4_06flv")]
+position = Vector2(-58, 319)
+rotation = 0.315905
+
+[node name="rope3" parent="rope/fixed_end" instance=ExtResource("4_06flv")]
+position = Vector2(-162, 468)
+rotation = 0.937242
+
+[node name="rope4" parent="rope/fixed_end" instance=ExtResource("4_06flv")]
+position = Vector2(-339, 543)
+rotation = 1.37357
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(4, 43)
+node_a = NodePath("..")
+node_b = NodePath("../rope")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-30, 228)
+node_a = NodePath("../rope")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-86, 410)
+node_a = NodePath("../rope2")
+node_b = NodePath("../rope3")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-240, 527)
+node_a = NodePath("../rope3")
+node_b = NodePath("../rope4")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="rope/fixed_end"]
+position = Vector2(-433, 559)
+node_a = NodePath("../rope4")
+node_b = NodePath("../../head")
+
+[node name="fixed_end2" parent="rope" instance=ExtResource("3_t8f2r")]
+position = Vector2(-6, -194)
+
+[node name="rope" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-5, 152)
+rotation = 0.10472
+
+[node name="rope2" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-62, 335)
+rotation = 0.506145
+
+[node name="rope3" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-181, 484)
+rotation = 0.846485
+
+[node name="rope4" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-339, 590)
+rotation = 1.12225
+
+[node name="rope5" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-521, 659)
+rotation = 1.32296
+
+[node name="rope6" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-710, 672)
+rotation = 1.68424
+
+[node name="rope7" parent="rope/fixed_end2" instance=ExtResource("4_06flv")]
+position = Vector2(-891, 622)
+rotation = 1.9984
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(9, 53)
+node_a = NodePath("..")
+node_b = NodePath("../rope")
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-106, 418)
+node_a = NodePath("../rope2")
+node_b = NodePath("../rope3")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-17, 247)
+node_a = NodePath("../rope")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-253, 547)
+node_a = NodePath("../rope3")
+node_b = NodePath("../rope4")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-428, 631)
+node_a = NodePath("../rope4")
+node_b = NodePath("../rope5")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-614, 678)
+node_a = NodePath("../rope5")
+node_b = NodePath("../rope6")
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-802, 659)
+node_a = NodePath("../rope6")
+node_b = NodePath("../rope7")
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="rope/fixed_end2"]
+position = Vector2(-983, 577)
+node_a = NodePath("../rope7")
+node_b = NodePath("../../head")
+
+[node name="fixed_end3" parent="rope" instance=ExtResource("3_t8f2r")]
+position = Vector2(-1005, -194)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rope/fixed_end3"]
+position = Vector2(2, 44)
+node_a = NodePath("..")
+node_b = NodePath("../rope")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="rope/fixed_end3"]
+position = Vector2(-3, 231)
+node_a = NodePath("../rope")
+node_b = NodePath("../rope2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="rope/fixed_end3"]
+position = Vector2(1, 417)
+node_a = NodePath("../rope2")
+node_b = NodePath("../../head")
+
+[node name="rope" parent="rope/fixed_end3" instance=ExtResource("4_06flv")]
+position = Vector2(3, 139)
+
+[node name="rope2" parent="rope/fixed_end3" instance=ExtResource("4_06flv")]
+position = Vector2(3, 329)
+
+[node name="star" type="Node" parent="."]
+
+[node name="star" parent="star" instance=ExtResource("5_xsb48")]
+position = Vector2(-1015, 555)
+
+[node name="star3" parent="star" instance=ExtResource("5_xsb48")]
+position = Vector2(-1015, 858)
+
+[node name="star2" parent="star" instance=ExtResource("5_xsb48")]
+position = Vector2(-81, 555)
+
+[node name="player2" type="Label" parent="."]
+offset_left = -930.0
+offset_top = -542.0
+offset_right = 150.0
+offset_bottom = -418.0
+theme_override_font_sizes/font_size = 90
+text = "L2tip"
