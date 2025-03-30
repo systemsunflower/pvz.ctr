@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhsxok0c1pwt5"]
+
+[ext_resource type="Texture2D" uid="uid://bql12scypwirp" path="res://reanim/Zombie_head.png" id="1_3pswd"]
+[ext_resource type="Script" path="res://reanim/head.gd" id="1_5ljcv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3xuml"]
+friction = 0.6
+rough = true
+bounce = 0.2
+
+[node name="head" type="RigidBody2D"]
+z_index = 5
+collision_layer = 3
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_3xuml")
+script = ExtResource("1_5ljcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_3pswd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -81, 25, -81, 49, -71, 71, -41, 76, -26, 76, 8, 30, 66, 9, 81, -26, 81, -37, 66, -45, 40, -63, 34, -72, 15, -76, -16, -77, -33, -52, -61)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
