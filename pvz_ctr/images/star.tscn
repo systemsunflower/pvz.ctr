@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcdmex6xpwhiw"]
+
+[ext_resource type="Script" path="res://images/star.gd" id="1_46svo"]
+[ext_resource type="Texture2D" uid="uid://0bgk75xsvi7j" path="res://images/Projectile_star.png" id="1_yki1l"]
+[ext_resource type="AudioStream" uid="uid://csp2eqlqtrt0i" path="res://sounds/coin.ogg" id="3_oqyfh"]
+
+[sub_resource type="Animation" id="Animation_bony3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2rhwm"]
+resource_name = "tern"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnixa"]
+_data = {
+"RESET": SubResource("Animation_bony3"),
+"tern": SubResource("Animation_2rhwm")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjqn1"]
+radius = 50.04
+
+[node name="star" type="Node2D"]
+script = ExtResource("1_46svo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_nnixa")
+}
+autoplay = "tern"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_yki1l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oqyfh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wjqn1")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwx4jgggdnyjf"]
+
+[ext_resource type="Texture2D" uid="uid://m77gfi5aqbrl" path="res://images/background.png" id="1_17dxs"]
+[ext_resource type="Script" path="res://images/bg.gd" id="2_y2tp1"]
+
+[node name="background" type="CanvasLayer"]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_17dxs")
+script = ExtResource("2_y2tp1")
